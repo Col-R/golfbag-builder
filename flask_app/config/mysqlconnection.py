@@ -1,4 +1,5 @@
 import pymysql.cursors
+import os;
 
 # this class will give us an instance of a connection to our database
 class MySQLConnection:
