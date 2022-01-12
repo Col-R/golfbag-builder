@@ -12,6 +12,7 @@ class Bag:
         self.irons = data['irons']
         self.wedges = data['wedges']
         self.putter = data['putter']
+        self.user_id = data['user_id']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
@@ -22,4 +23,27 @@ class Bag:
         bags = []
         for row in bags_from_db:
             bags.append(cls(row))
-        return bags     
+        return bags
+
+    # ask for help on this
+    @classmethod
+    def get_all_by_creator(cls):
+        query = "SELECT * FROM bags JOIN users ON bags.user_id = user.id"
+        bags_from_db = connectToMySQL(cls.db).query_db(query)
+        bags_by_creator = []
+        for bag in bags_from_db:
+            bags_by_creator.append(cls(bag))
+        return bags_by_creator
+    
+    @classmethod
+    def create_bag(cls,data):
+        query = "INSERT INTO bags (name, driver, woods, hybrids, irons, wedges, putter, user_id) VALUES (%(name)s,%(driver)s,%(woods)s,%(hybrids)s,%(irons)s,%(wedges)s,%(putter)s,%(user_id)s); "
+        bag_id = connectToMySQL(cls.db).query_db(query, data)
+        return bag_id
+    
+    @classmethod
+    def get_by_id(cls, data):
+        query = "SELECT * FROM bags WHERE id = %(id)s;"
+        bag_by_id = connectToMySQL(cls.db).query_db(query, data)
+        this_bag = cls(bag_by_id[0])
+        return this_bag
