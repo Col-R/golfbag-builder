@@ -9,7 +9,55 @@
 </head>
 <body>
 <h1>Test</h1>
+<form action="/bag/new" method="POST" class="">
+    <h2 class="">Create a Bag</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-danger" role="alert">
+      <strong>Fields cannot be blank</strong>
+      {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
 
+    <div class="">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="driver">Driver</label>
+          <input type="text" name="driver" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="woods">Woods</label>
+          <input type="text" name="woods" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="hybrids">Hybrids</label>
+          <input type="text" name="hybrids" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="irons">Irons</label>
+          <input type="text" name="irons" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="wedges">Wedges</label>
+          <input type="text" name="wedges" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="putter">Putter</label>
+          <input type="text" name="putter" class="form-control">
+        </div>
+        <input type="submit" value="Add Bag" class="btn btn-primary">
+      </div>
+
+    </div>
+    </div>
+  </form>
 </body>
 
 </html>
