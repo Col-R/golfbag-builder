@@ -47,3 +47,11 @@ class Bag:
         bag_by_id = connectToMySQL(cls.db).query_db(query, data)
         this_bag = cls(bag_by_id[0])
         return this_bag
+    
+    @staticmethod
+    def validate_bag(bag):
+        is_valid = True
+        if len(bag['name']) < 3:
+            is_valid = False
+            flash("Name must be at least 3 characters")
+        return is_valid
