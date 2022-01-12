@@ -1,6 +1,7 @@
 from flask import render_template,redirect,session,request, flash
 from flask_app import app
 from flask_app.models.user import User
+from flask_app.models.bag import Bag
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -35,6 +36,15 @@ def login():
     session['user_id'] = user.id
     return redirect('/dashboard')
 
+
+@app.route("/dashboard")
+def dashboard():
+    if 'user_id' not in session:
+        return redirect('/')
+    data ={
+        'id': session['user_id']
+    }
+    return render_template("dashboard.html", user = User.get_by_id(data), bags = Bag.get_all_by_creator())
 
 @app.route('/logout')
 def logout():
