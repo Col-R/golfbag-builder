@@ -10,14 +10,24 @@
 
 <body>
     <div class = "container">
-        <h1>My bags</h1>
-            <ul>
-                {% for bag in bags %}
-                <li>{{bag.name}}</li>
-                {% endfor %}
-            </ul>
-            <a href = "/bag/create">Add a bag</a>
-
+        <div class = "row">
+            <div class = "col-5">
+                <h1>Feed</h1>
+                    <ul>
+                        <!-- TODO: user activity feed -->
+                        <li>Debbie made changes to their bag: <a href = "/dashboard">Travel Bag</a></li>
+                    </ul>
+            </div>
+            <div class = "col-5 border-start">
+                <h1>My bags</h1>
+                    <ul>
+                        {% for bag in bags %}
+                        <li>{{bag.name}}</li>
+                        {% endfor %}
+                    </ul>
+                <a href = "/bag/create">Add a bag</a>
+            </div>
+        </div>
     </div>
 
 </body>
