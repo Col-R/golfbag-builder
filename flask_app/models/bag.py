@@ -27,9 +27,9 @@ class Bag:
 
     # ask for help on this
     @classmethod
-    def get_all_by_creator(cls):
-        query = "SELECT * FROM bags JOIN users ON bags.user_id = user.id"
-        bags_from_db = connectToMySQL(cls.db).query_db(query)
+    def get_all_by_creator(cls, data):
+        query = "SELECT * FROM bags JOIN users ON bags.user_id = users.id"
+        bags_from_db = connectToMySQL(cls.db).query_db(query, data)
         bags_by_creator = []
         for bag in bags_from_db:
             bags_by_creator.append(cls(bag))
