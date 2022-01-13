@@ -1,9 +1,0 @@
-MVPs -
-    Login/Reg with encryption
-    CRUD functionality for users executing CRUD commands with their created "Bags"
-        - users may only edit or delete their own bags
-    Many to Many functionality with users able to like the status updates of other users displayed on the dashboard feed.
-Future - 
-    API/autocomplete for golf club form.
-    Adding comments to Activity Feed
-    Allowing user to sort bags alphabetically or by date created in the My Bags section
