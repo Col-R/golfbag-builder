@@ -44,7 +44,8 @@ def dashboard():
     data ={
         'id': session['user_id']
     }
-    return render_template("dashboard.html", user = User.get_by_id(data))
+    return render_template("dashboard.html", user = User.get_by_id(data), bags = Bag.get_all_by_creator(data))
+    
 
 @app.route('/logout')
 def logout():
