@@ -38,7 +38,10 @@ def show(id):
     data = {
         "id":id
     }
-    return render_template("show_bag.html", bag=bag.Bag.get_by_id(data))
+    user_data = {
+        "id":session['user_id']
+    }
+    return render_template("show_bag.html", bag=bag.Bag.get_by_id(data), user = user.User.get_by_id(user_data))
 
 @app.route('/edit/<int:id>')
 def edit_bag(id):
@@ -72,3 +75,13 @@ def update_bag():
     return redirect('/dashboard')
     # Ask about the below. How to redirect to the bag's show page
     # return redirect(url_for('.bag', id = id))
+
+@app.route("/bag/delete/<int:id>")
+def delete(id):
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        "id": id
+    }
+    bag.Bag.delete(data)
+    return redirect ('/dashboard')
