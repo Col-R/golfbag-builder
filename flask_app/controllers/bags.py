@@ -40,7 +40,7 @@ def show(id):
     }
     return render_template("show_bag.html", bag=bag.Bag.get_by_id(data))
 
-@app.route('edit/<int:id')
+@app.route('/edit/<int:id>')
 def edit_bag(id):
     if 'user_id' not in session:
         return redirect('/logout')
@@ -51,3 +51,24 @@ def edit_bag(id):
         "id":session['user_id']
     }
     return render_template("edit_bag.html", edit = bag.Bag.get_by_id(data), user = user.User.get_by_id(user_data))
+
+@app.route("/bag/update",methods=['POST'])
+def update_bag():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    if not bag.Bag.validate_bag(request.form):
+        return redirect('/bag/create')
+    data = {
+        "name":request.form["name"],
+        "driver":request.form["driver"],
+        "woods":request.form["woods"],
+        "hybrids":request.form["hybrids"],
+        "irons":request.form["irons"],
+        "wedges":request.form["wedges"],
+        "putter":request.form["putter"],
+        "id": request.form['id']
+    }
+    bag.Bag.update(data)
+    return redirect('/dashboard')
+    # Ask about the below. How to redirect to the bag's show page
+    # return redirect(url_for('.bag', id = id))

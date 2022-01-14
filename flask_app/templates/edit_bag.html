@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Test</h1>
-<form action="/bag/update" method="POST" class="">
+<form action="/bag/update" method="post" class="">
     <h2 class="">Edit a Bag</h2>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -22,7 +22,7 @@
     {% endif %}
     {% endwith %}
 
-    <div class="">
+    <div class="row">
       <input type = "hidden" name = "id" value = {{edit.id}}>
       <div class="col-4">
         <div class="form-group">
