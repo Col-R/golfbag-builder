@@ -22,7 +22,7 @@
                 <h1>My bags</h1>
                     <ul>
                         {% for bag in bags %}
-                        <li>{{bag.name}}</li>
+                        <li><a href = "/bag/{{bag.id}}">{{bag.name}}</a></li>
                         {% endfor %}
                     </ul>
                 <a href = "/bag/create">Add a bag</a>
