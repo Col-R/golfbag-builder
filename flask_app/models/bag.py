@@ -8,7 +8,7 @@ class Bag:
         self.name = data['name']
         self.driver = data['driver']
         self.woods = data['woods']
-        self.hybrids = data['hybrid']
+        self.hybrids = data['hybrids']
         self.irons = data['irons']
         self.wedges = data['wedges']
         self.putter = data['putter']
@@ -28,12 +28,13 @@ class Bag:
     # ask for help on this
     @classmethod
     def get_all_by_creator(cls, data):
-        query = "SELECT * FROM bags JOIN users ON bags.user_id = users.id"
+        query = "SELECT * FROM bags JOIN users ON bags.user_id = users.id WHERE bags.user_id = %(id)s;"
         bags_from_db = connectToMySQL(cls.db).query_db(query, data)
         bags_by_creator = []
         for bag in bags_from_db:
             bags_by_creator.append(cls(bag))
         return bags_by_creator
+        print (bags_by_creator)
     
     @classmethod
     def create_bag(cls,data):
