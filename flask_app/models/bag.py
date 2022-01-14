@@ -48,6 +48,16 @@ class Bag:
         bag_by_id = connectToMySQL(cls.db).query_db(query, data)
         this_bag = cls(bag_by_id[0])
         return this_bag
+
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE bags SET name=%(name)s, driver = %(driver)s, woods = %(woods)s, hybrids = %(hybrids)s, irons = %(irons)s, wedges = %(wedges)s, putter = %(putter)s WHERE id = %(id)s;"
+        return connectToMySQL(cls.db).query_db(query,data)
+    
+    @classmethod
+    def delete(cls, data):
+        query = 'DELETE FROM bags WHERE id = %(id)s;'
+        return connectToMySQL(cls.db).query_db( query, data )
     
     @staticmethod
     def validate_bag(bag):
