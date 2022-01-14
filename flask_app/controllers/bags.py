@@ -30,6 +30,7 @@ def create_bag():
     bag.Bag.create_bag(data)
     return redirect('/dashboard')
 
+#show specific bag
 @app.route('/bag/<int:id>')
 def show(id):
     if 'user_id' not in session:
@@ -38,3 +39,15 @@ def show(id):
         "id":id
     }
     return render_template("show_bag.html", bag=bag.Bag.get_by_id(data))
+
+@app.route('edit/<int:id')
+def edit_bag(id):
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        "id":id
+    }
+    user_data = {
+        "id":session['user_id']
+    }
+    return render_template("edit_bag.html", edit = bag.Bag.get_by_id(data), user = user.User.get_by_id(user_data))
