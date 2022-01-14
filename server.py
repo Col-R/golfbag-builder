@@ -6,3 +6,4 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 #To ask
+# KeyError: hybrid on dashboard and show pages, not on the create

@@ -29,3 +29,12 @@ def create_bag():
     }
     bag.Bag.create_bag(data)
     return redirect('/dashboard')
+
+@app.route('/bag/<int:id>')
+def show(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        "id":id
+    }
+    return render_template("show_bag.html", bag=bag.Bag.get_by_id(data))
