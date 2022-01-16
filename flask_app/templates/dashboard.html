@@ -13,10 +13,11 @@
         <div class = "row">
             <div class = "col-5">
                 <h1>Feed</h1>
-                    <ul>
-                        <!-- TODO: user activity feed -->
-                        <li>Placeholder content - <a href = "/dashboard">Link to specified bag</a></li>
-                    </ul>
+                <ul>
+                    {% for change in changes %}
+                    <li>{{change.first_name}} made changes to <a href = "#">{{change.bags[0].name}}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
             <div class = "col-5 border-start">
                 <h1>My bags</h1>
@@ -26,6 +27,7 @@
                         {% endfor %}
                     </ul>
                 <a href = "/bag/create">Add a bag</a>
+                <a href = "/logout">Log out</a>
             </div>
         </div>
     </div>

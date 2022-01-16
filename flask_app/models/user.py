@@ -3,6 +3,7 @@ import re	# the regex module
 # create a regular expression object that we'll use later
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask import flash
+from ..models import bag
 
 class User:
     db = "bag_builder"
@@ -34,6 +35,32 @@ class User:
         query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query,data)
         return cls(results[0])
+
+    @classmethod
+    def get_changes(cls):
+        query = "SELECT * FROM users LEFT JOIN bags ON users.id = bags.user_id ORDER BY bags.updated_at DESC;"
+        bag_changes = connectToMySQL(cls.db).query_db(query)
+        changes = []
+        for change in bag_changes:
+            user = cls(change)
+            bag_data = {
+                "id": change['bags.id'],
+                'name': change['name'],
+                'driver': change['driver'],
+                'woods':change['woods'],
+                'hybrids' :change['hybrids'],
+                'irons': change['irons'],
+                'wedges': change['wedges'],
+                'putter': change['putter'],
+                'content': change['content'],
+                'user_id':change['user_id'],
+                'created_at': change['bags.created_at'],
+                'updated_at': change['bags.updated_at']
+            }
+            user.bags.append(bag.Bag(bag_data))
+            changes.append(user)
+            
+        return changes;
 
     @staticmethod
     def validate_register(user):

@@ -19,14 +19,13 @@ class Bag:
 
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM bags;"
+        query = "SELECT * FROM bags JOIN users ON bags.user_id = users.id ORDER BY bags.updated_at DESC"
         bags_from_db = connectToMySQL(cls.db).query_db(query)
         bags = []
         for row in bags_from_db:
             bags.append(cls(row))
         return bags
 
-    # ask for help on this
     @classmethod
     def get_all_by_creator(cls, data):
         query = "SELECT * FROM bags JOIN users ON bags.user_id = users.id WHERE bags.user_id = %(id)s;"
@@ -35,11 +34,13 @@ class Bag:
         for bag in bags_from_db:
             bags_by_creator.append(cls(bag))
         return bags_by_creator
-        print (bags_by_creator)
+    
+     # WHERE users.id = %(id)s;
+
     
     @classmethod
     def create_bag(cls,data):
-        query = "INSERT INTO bags (name, driver, woods, hybrids, irons, wedges, putter, user_id) VALUES (%(name)s,%(driver)s,%(woods)s,%(hybrids)s,%(irons)s,%(wedges)s,%(putter)s,%(user_id)s); "
+        query = "INSERT INTO bags (name, driver, woods, hybrids, irons, wedges, putter, user_id) VALUES (%(name)s,%(driver)s,%(woods)s,%(hybrids)s,%(irons)s,%(wedges)s,%(putter)s, %(user_id)s); "
         bag_id = connectToMySQL(cls.db).query_db(query, data)
         return bag_id
     
