@@ -76,6 +76,15 @@ def update_bag():
     # Ask about the below. How to redirect to the bag's show page
     # return redirect(url_for('.bag', id = id))
 
+@app.route("/like", methods = ["POST"])
+def like():
+    data = {
+        'bag_id': request.form['bag_id'],
+        'user_id': session['user_id']
+    }
+    user.User.like(data)
+    return redirect ("/dashboard")
+
 @app.route("/bag/delete/<int:id>")
 def delete(id):
     if 'user_id' not in session:

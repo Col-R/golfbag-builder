@@ -5,7 +5,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask import flash
 from ..models import bag
 
-class User:
+class User ():
     db = "bag_builder"
     def __init__(self, data):
         self.id = data['id']
@@ -16,11 +16,18 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.bags = []
+    
+
 
     @classmethod
     def create(cls,data):
-        query = "INSERT INTO users(first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s)"
+        query = "INSERT INTO users(first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s);"
         return connectToMySQL(cls.db).query_db(query,data)
+    
+    # @classmethod
+    # def like(cls, data):
+    #     query = "INSERT INTO likes (user_id, bag_id) VALUES (%(user_id)s, %(bag_id)s);"
+    #     return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
     def get_by_email(cls,data):
@@ -61,6 +68,12 @@ class User:
             changes.append(user)
             
         return changes;
+
+    @classmethod
+    def like(cls, data):
+        query = "INSERT INTO likes (user_id, bag_id) VALUES (%(user_id)s, %(bag_id)s);"
+        return connectToMySQL(cls.db).query_db(query,data)
+
 
     @staticmethod
     def validate_register(user):

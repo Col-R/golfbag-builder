@@ -15,7 +15,12 @@
                 <h1>Feed</h1>
                 <ul>
                     {% for change in changes %}
-                    <li>{{change.first_name}} made changes to <a href = "#">{{change.bags[0].name}}</a></li>
+                    <li>{{change.first_name}} made changes to <a href = "/bag/{{change.bags[0].id}}">{{change.bags[0].name}}</a>
+                        <form action = "/like" method = "POST">
+                            <input type = "hidden" name = "bag_id" value = "{{change.bags[0].id}}">
+                            <input type = "submit" value = "Like">
+                        </form>
+                    </li>
                     {% endfor %}
                 </ul>
             </div>
