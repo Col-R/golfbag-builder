@@ -32,10 +32,13 @@ body {
     /* padding: 10px 25px; */
     text-decoration: none;
     font-size: 2em;
+    color: #FFFF;
 }
-.topnav a:hover {
+
+a:hover {
     color: #398564;
   }
+
 
 #brand {
     font-weight: bold;
@@ -63,17 +66,70 @@ body {
     display: block;
     padding: 5px 5px;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 25px;
     max-width: 100%;
     height: auto;
 }
 .feed {
     background-color: #FFFFFF;
-    color: #004242;
     border-radius: 15px;
     margin: 5px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
-.feed-item {
+.feed_item {
+    color: #004242;
     font-size: 1.5em;
     margin-left: 0px;
+
+    display: flex;
+    
+    
+}
+.feed_item a {
+    color: #004242;
+    font-size: 1em;
+    margin-left: 0px;
+}
+.feed_item a:hover{
+    color: #9EC567;
+}
+.like {
+    flex-direction: row;
+}
+
+/* My bags, right side dashboard*/
+.sidebar {
+    background-color: #6E9597;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.my_bags{
+    border-radius: 15px;
+    background-color: #C4C4C4;
+    padding: 10px 0px;
+    list-style-type: none;
+}
+ul{
+    list-style-type: none;
+}
+.my_bag_item{
+    text-decoration: none;
+    color: #004242;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+
+}
+#dash_cart{
+    padding: 5px 5px;
+    margin: auto;
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    bottom: 0px;
 }
