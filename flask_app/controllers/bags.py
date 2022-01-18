@@ -73,8 +73,6 @@ def update_bag():
     }
     bag.Bag.update(data)
     return redirect('/dashboard')
-    # Ask about the below. How to redirect to the bag's show page
-    # return redirect(url_for('.bag', id = id))
 
 @app.route("/like", methods = ["POST"])
 def like():
