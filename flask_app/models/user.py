@@ -45,7 +45,8 @@ class User ():
 
     @classmethod
     def get_changes(cls):
-        query = "SELECT * FROM users LEFT JOIN bags ON users.id = bags.user_id ORDER BY bags.updated_at DESC;"
+        query = "SELECT * FROM users LEFT JOIN bags ON users.id = bags.user_id ORDER BY bags.updated_at DESC;" #also include likes table, look in sql section of the platform
+        # query = "SELECT * FROM users RIGHT JOIN bags ON users.id = bags.user_id LEFT JOIN likes ON likes.user_id = users.id ORDER BY bags.updated_at DESC;"
         bag_changes = connectToMySQL(cls.db).query_db(query)
         changes = []
         for change in bag_changes:
@@ -73,7 +74,11 @@ class User ():
     def like(cls, data):
         query = "INSERT INTO likes (user_id, bag_id) VALUES (%(user_id)s, %(bag_id)s);"
         return connectToMySQL(cls.db).query_db(query,data)
-
+    
+    @classmethod
+    def unlike(cls,data):
+        query = "DELETE FROM likes WHERE user_id = %(user_id)s AND bag_id = %(bag_id)s;"
+        return connectToMySQL(cls.db).query_db(query,data)
 
     @staticmethod
     def validate_register(user):
