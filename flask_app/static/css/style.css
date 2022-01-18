@@ -13,14 +13,18 @@ Palette:
     font-family: 'Montserrat', sans-serif;
     padding: 0px;
     margin: auto 0px;
+    text-decoration: none !important;
 }
 body {
     background-color: #004242;
+    color: #FFFFFF;
+    
 }
 .topnav {
     color: #FFFF;
     overflow: hidden;
     background-color: #9EC5C7;
+    padding: 0px;
 }
 .topnav a {
     /* float: left; */
@@ -47,5 +51,22 @@ main {
     margin-top: 2em;
 }
 #welcome {
-    background-color: #398564;
+    padding-left: 5px;
+    font-size: 2.5em;
+    color: #FFFF;
+    background-color: #9EC5C7;
+    width: auto;
+}
+#dashboard_hero{
+    display: block;
+    padding: 5px 0px;
+    margin-left: 0px;
+    margin-right: auto;
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+}
+.feed {
+    background-color: #FFFFFF;
+    color: #004242;
 }
