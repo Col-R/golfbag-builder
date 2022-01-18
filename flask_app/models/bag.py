@@ -18,6 +18,8 @@ class Bag:
         self.updated_at = data['updated_at']
         self.likers = []
 
+        # self.likers will be list of id's that have liked a given bag
+
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM bags JOIN users ON bags.user_id = users.id ORDER BY bags.updated_at DESC"
