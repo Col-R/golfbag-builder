@@ -46,9 +46,11 @@
       <li>{{bag.wedges}}</li>
       <li>{{bag.putter}}</li>
     </ul>
+    {% if bag.user_id == session.user_id%}
 
-    <a href="/edit/{{bag.id}}">Edit bag</a>
-    <a href="/bag/delete/{{bag.id}}">Delete Bag</a>
+      <a href="/edit/{{bag.id}}">Edit bag</a>
+      <a href="/bag/delete/{{bag.id}}">Delete Bag</a>
+    {% endif %}
 </body>
 </div>
 
