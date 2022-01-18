@@ -1,58 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
 <body>
-    <div class = "container">
-        <nav class="navbar navbar-light bg-light" id = "nav">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                <img src="static/img/logo_w.png" alt="" width="30" height="24">Bag Builder
-              </a>
-              <p>Home</p>
-              <p>Add bag</p>
-              <p>Log Out</p>
-            </div>
-        </nav>
-    </div>
-        <div class = "row justify-content-center gx-5">
-            <!-- Activity feed -->
-            <div class = "col-4 border">
-                <h1>Feed</h1>
-                <ul>
-                    {% for change in changes %}
-                    <li>{{change.first_name}} made changes to <a href = "/bag/{{change.bags[0].id}}">{{change.bags[0].name}}</a>
-                        <form action = "/like" method = "POST">
-                            <input type = "hidden" name = "bag_id" value = "{{change.bags[0].id}}">
-                            <input type = "submit" value = "Like">
-                        </form>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- My Bags List -->
-            <div class = "col-4 border">
-                <h1>My bags</h1>
-                    <ul>
-                        {% for bag in bags %}
-                        <li><a href = "/bag/{{bag.id}}">{{bag.name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                <a href = "/bag/create">Add a bag</a>
-                <a href = "/logout">Log out</a>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar topnav">
+                <div class="container-fluid">
+                    <div>
+                        <img src="static/img/logo_w.png" alt="golf bag site logo" id="logo">
+                        <span id="brand" class="navbar-brand">Bag Builder</span>
+                    </div>
+                    <a href="/dashboard">Home</a>
+                    <a href="/bag/create">Add a Bag</a>
+                    <a href="/logout">Log Out</a>
+                </div>
+            </nav>
+            <div class="topnav">
+
             </div>
         </div>
-    </div>
 
+        <main>
+            <div class="row justify-content-center">
+                <div class="row">
+                <h1 id="welcome">Welcome {{user.first_name}}</h1>
+            
+                </div>
+                <!-- Activity feed -->
+                <div class="col border" id="feed">
+                    
+                    <ul>
+                        {% for change in changes %}
+                        <li>{{change.first_name}} made changes to <a
+                                href="/bag/{{change.bags[0].id}}">{{change.bags[0].name}}</a>
+                            <form action="/like" method="POST">
+                                <input type="hidden" name="bag_id" value="{{change.bags[0].id}}">
+                                <input type="submit" value="Like">
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- My Bags List -->
+                <div class="col border">
+                    <h1>My bags</h1>
+                    <ul>
+                        {% for bag in bags %}
+                        <li><a href="/bag/{{bag.id}}">{{bag.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <a href="/bag/create">Add a bag</a>
+                    <a href="/logout">Log out</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
     <!-- scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

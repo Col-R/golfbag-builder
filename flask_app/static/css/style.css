@@ -1,0 +1,51 @@
+/*
+Palette:
+#FFFFFF
+#C4C4C4
+#9EC5C7
+#6E9597
+#398564
+#004242
+*/
+
+/* All pages */
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px;
+    margin: auto 0px;
+}
+body {
+    background-color: #004242;
+}
+.topnav {
+    color: #FFFF;
+    overflow: hidden;
+    background-color: #9EC5C7;
+}
+.topnav a {
+    /* float: left; */
+    /* text-align: center; */
+    /* padding: 10px 25px; */
+    text-decoration: none;
+    font-size: 2em;
+}
+.topnav a:hover {
+    color: #398564;
+  }
+
+#brand {
+    font-weight: bold;
+    font-size: 2.5em;
+}
+#logo {
+    height: 4.5em;
+    padding: none;
+    
+}
+/*Dashboard Activity Feed*/
+main {
+    margin-top: 2em;
+}
+#welcome {
+    background-color: #398564;
+}
