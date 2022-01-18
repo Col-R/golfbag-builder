@@ -1,65 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <title>Add a Bag</title>
 </head>
+
 <body>
-<h1>Test</h1>
-<form action="/bag/update" method="post" class="">
-    <h2 class="">Edit a Bag</h2>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div class="alert alert-danger" role="alert">
-      <strong>Fields cannot be blank</strong>
-      {% for message in messages %}
-      <p>{{message}}</p>
-      {% endfor %}
-    </div>
-    {% endif %}
-    {% endwith %}
 
+  <div class="container">
     <div class="row">
-      <input type = "hidden" name = "id" value = {{edit.id}}>
-      <div class="col-4">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" name="name" class="form-control" value = "{{edit.name}}">
+      <nav class="navbar topnav">
+        <div class="container-fluid">
+          <div>
+            <img src="../static/img/logo_w.png" alt="golf bag site logo" id="logo">
+            <span id="brand" class="navbar-brand">Bag Builder</span>
+          </div>
+          <a href="/dashboard">Home</a>
+          <a href="/bag/create">Add a Bag</a>
+          <a href="/logout">Log Out</a>
         </div>
-        <div class="form-group">
-          <label for="driver">Driver</label>
-          <input type="text" name="driver" class="form-control" value = "{{edit.driver}}">
-        </div>
-        <div class="form-group">
-          <label for="woods">Woods</label>
-          <input type="text" name="woods" class="form-control" value = "{{edit.woods}}">
-        </div>
-        <div class="form-group">
-          <label for="hybrids">Hybrids</label>
-          <input type="text" name="hybrids" class="form-control" value = "{{edit.hybrids}}">
-        </div>
-        <div class="form-group">
-          <label for="irons">Irons</label>
-          <input type="text" name="irons" class="form-control" value = "{{edit.irons}}">
-        </div>
-        <div class="form-group">
-          <label for="wedges">Wedges</label>
-          <input type="text" name="wedges" class="form-control" value = "{{edit.wedges}}">
-        </div>
-        <div class="form-group">
-          <label for="putter">Putter</label>
-          <input type="text" name="putter" class="form-control" value = "{{edit.putter}}">
-        </div>
-        <input type="submit" value="Save changes" class="btn btn-primary">
-      </div>
+      </nav>
+      <div class="topnav">
 
+      </div>
     </div>
-    </div>
+
+
+    <h1>Test</h1>
+    <form action="/bag/update" method="post" class="">
+      <h2 class="">Edit a Bag</h2>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="alert alert-danger" role="alert">
+        <strong>Fields cannot be blank</strong>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <div class="row">
+        <input type="hidden" name="id" value={{edit.id}}>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="form-control" value="{{edit.name}}">
+          </div>
+          <div class="form-group">
+            <label for="driver">Driver</label>
+            <input type="text" name="driver" class="form-control" value="{{edit.driver}}">
+          </div>
+          <div class="form-group">
+            <label for="woods">Woods</label>
+            <input type="text" name="woods" class="form-control" value="{{edit.woods}}">
+          </div>
+          <div class="form-group">
+            <label for="hybrids">Hybrids</label>
+            <input type="text" name="hybrids" class="form-control" value="{{edit.hybrids}}">
+          </div>
+          <div class="form-group">
+            <label for="irons">Irons</label>
+            <input type="text" name="irons" class="form-control" value="{{edit.irons}}">
+          </div>
+          <div class="form-group">
+            <label for="wedges">Wedges</label>
+            <input type="text" name="wedges" class="form-control" value="{{edit.wedges}}">
+          </div>
+          <div class="form-group">
+            <label for="putter">Putter</label>
+            <input type="text" name="putter" class="form-control" value="{{edit.putter}}">
+          </div>
+          <input type="submit" value="Save changes" class="btn btn-primary">
+        </div>
+
+      </div>
+  </div>
   </form>
 </body>
+</div>
 
 </html>

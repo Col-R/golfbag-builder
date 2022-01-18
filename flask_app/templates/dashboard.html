@@ -22,7 +22,7 @@
             <nav class="navbar topnav">
                 <div class="container-fluid">
                     <div>
-                        <img src="static/img/logo_w.png" alt="golf bag site logo" id="logo">
+                        <img src="../static/img/logo_w.png" alt="golf bag site logo" id="logo">
                         <span id="brand" class="navbar-brand">Bag Builder</span>
                     </div>
                     <a href="/dashboard">Home</a>
@@ -38,14 +38,15 @@
         <main>
             <div class="row justify-content-center main">
                 <!-- Activity feed -->
-                <div class="col-9 border">
+                <div class="col-9">
                     <div id="welcome">Welcome {{user.first_name}}</div>
                     <img src="static/img/dashboard_hero_thin.jpg" alt="golf ball on the green" id="dashboard_hero">
 
                     <div class="feed">
                         {% for change in changes %}
                         <div class="row feed-item">
-                            <p>{{change.first_name}} made changes to their <a href="/bag/{{change.bags[0].id}}">{{change.bags[0].name}}!</a>
+                            <p>{{change.first_name}} made changes to their <a
+                                    href="/bag/{{change.bags[0].id}}">{{change.bags[0].name}}!</a>
                                 <form action="/like" method="POST">
                                     <input type="hidden" name="bag_id" value="{{change.bags[0].id}}">
                                     <input type="submit" value="Like">
@@ -53,17 +54,24 @@
                             </p>
                         </div>
                         {% endfor %}
+                        
                     </div>
-
+                    
                 </div>
                 <!-- My Bags List -->
-                <div class="col-3">
+                <div class="col-3 sidebar">
                     <h3>My bags</h3>
-                    <ul>
+                    <div class="my_bags">
                         {% for bag in bags %}
-                        <li><a href="/bag/{{bag.id}}">{{bag.name}}</a></li>
+                        <ul>
+
+                            <li><a href="/bag/{{bag.id}}" class="my_bag_item">{{bag.name}}</a></li>
+
+                        </ul>
                         {% endfor %}
-                    </ul>
+                        
+                    </div>
+                    <img src="static/img/dash_cart.jpg" alt="golf cart" id="dash_cart">
                 </div>
             </div>
         </main>
