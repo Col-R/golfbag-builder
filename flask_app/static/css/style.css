@@ -74,7 +74,7 @@ a:hover {
     background-color: #FFFFFF;
     border-radius: 15px;
     margin: 5px;
-    max-height: 750px;
+    max-height: 520px;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
@@ -162,12 +162,22 @@ ul{
 
 /* Login Page */
 
-/* .banner {
-    background-image: url("../img/banner.jpg");
-    height: ;
+/* #banner {
+    height: 350px;
     width: auto;
 } */
-
-#banner {
-
+.register_login {
+    background-color: #6E9597;
+    margin: 0.3em 0.5em 0 0.5em;
+    text-align: center;
 }
+.form_windows {
+    color: black;
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+.form_style {
+    margin: 0;
+}
+
+/*Show page
