@@ -6,14 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <title>Add a Bag</title>
+  <title>View Bag</title>
 </head>
 
 <body>
@@ -34,24 +34,61 @@
 
       </div>
     </div>
-    <h1>{{ bag.name }}</h1>
+    <div class = "row">
+      <h1>{{ bag.name }}</h1>
+    </div>
+    <div class="row show_main">
+      <div class="col-4 ">
+        <div class="show_content">
+
+
+        </div>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseLeft" aria-expanded="false" aria-controls="collapseExample">
+          Button with data-target
+        </button>
+        <ul class = "show_content collapse" id="collapseLeft">
+          <li>{{bag.driver}}</li>
+          <li>{{bag.woods}}</li>
+          <li>{{bag.hybrids}}</li>
+        </ul>
+        <ul>
+          <li>
+            {% if bag.user_id == session.user_id%}
+            <a href="/edit/{{bag.id}}">Edit bag</a>
+          {% endif %}
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-4 show_content">
+        <ul>
+          <li>{{bag.irons}}</li>
+          <li>{{bag.wedges}}</li>
+          <li>{{bag.putter}}</li>
+        </ul>
+        <ul>
+          <li>
+            {% if bag.user_id == session.user_id%}
+            <a href="/bag/delete/{{bag.id}}">Delete Bag</a>
+          {% endif %}
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-4">
+        <img src="/static/img/view_sidebar.jpg" alt="golf bags" id = "show_img">
+      </div>
+    </div>
+    
 
     <!-- Todo create a collapsible button for each item in the bag. Label  = Driver, woods, etc. revealed content will be {{bag.driver}} {{bag.wedges}} etc -->
 
-    <ul>
-      <li>{{bag.driver}}</li>
-      <li>{{bag.woods}}</li>
-      <li>{{bag.hybrids}}</li>
-      <li>{{bag.irons}}</li>
-      <li>{{bag.wedges}}</li>
-      <li>{{bag.putter}}</li>
-    </ul>
-    {% if bag.user_id == session.user_id%}
-
-      <a href="/edit/{{bag.id}}">Edit bag</a>
-      <a href="/bag/delete/{{bag.id}}">Delete Bag</a>
-    {% endif %}
+  </div>
+<!-- scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-</div>
+
 
 </html>

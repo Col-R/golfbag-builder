@@ -74,7 +74,7 @@ a:hover {
     background-color: #FFFFFF;
     border-radius: 15px;
     margin: 5px;
-    max-height: 500px;
+    max-height: 750px;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
@@ -132,4 +132,31 @@ ul{
     max-width: 100%;
     height: auto;
     bottom: 0px;
+}
+
+/*View Bag*/
+
+.show_main{
+    background-color: #FFFFFF;
+    color: #004242;
+    border-radius: 15px;
+    font-size: 1.5em;
+    margin: 10px 0px;
+
+
+}
+
+.show_content {
+    display: flex;
+
+    flex-direction: column;
+    align-content: space-between;
+} 
+
+#show_img{
+    height: auto;
+    width: 100%;
+
+    margin: 10px 0px;
+    border-radius: 10px;
 }
