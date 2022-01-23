@@ -40,14 +40,13 @@
     </div>
     <div class="row show_main">
       <div class="row">
-        <div class="col-8"><h4 id="bag_title">{{bag.name}}</h4></div>
-        
+        <div class="col-8">
+          <h4 id="bag_title">{{bag.name}}</h4>
+        </div>
       </div>
-      
+
       <div class="col-4">
         <div class="show_content">
-
-
           <a class="expandLink" data-toggle="collapse" href="#collapseDriver" role="button" aria-expanded="false"
             aria-controls="collapseExample">
             + Driver
@@ -55,6 +54,7 @@
           <ul>
             <li class="show_content collapse" id="collapseDriver">{{bag.driver}}</li>
           </ul>
+
           <a class="expandLink" data-toggle="collapse" href="#collapseWoods" role="button" aria-expanded="false"
             aria-controls="collapseExample">
             + Woods
@@ -62,6 +62,7 @@
           <ul>
             <li class="show_content collapse" id="collapseWoods">{{bag.woods}}</li>
           </ul>
+
           <a class="expandLink" data-toggle="collapse" href="#collapseHybrids" role="button" aria-expanded="false"
             aria-controls="collapseExample">
             + Hybrids
@@ -69,8 +70,9 @@
           <ul>
             <li class="show_content collapse" id="collapseHybrids">{{bag.hybrids}}</li>
           </ul>
+          
           {% if bag.user_id == session.user_id%}
-          <a href="/edit/{{bag.id}}" class = "buttons_submit">Edit Bag</a>
+          <a href="/edit/{{bag.id}}" class="buttons_submit">Edit Bag</a>
           {% endif %}
         </div>
 
@@ -98,7 +100,7 @@
           <li class="show_content collapse" id="collapsePutter">{{bag.putter}}</li>
         </ul>
         {% if bag.user_id == session.user_id%}
-        <a href="/bag/delete/{{bag.id}}" class = "buttons_submit">Delete Bag</a>
+        <a href="/bag/delete/{{bag.id}}" class="buttons_submit">Delete Bag</a>
         {% endif %}
         <ul>
           <li>
