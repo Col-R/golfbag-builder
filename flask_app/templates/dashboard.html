@@ -45,11 +45,11 @@
                     <div class="feed">
                         {% for change in changes %}
                         <div class="row feed_item">
-                            <form action="/like" method="POST" class="like">
+                            <form action="/like" method="POST">
                                 <p>{{change.first_name}} made changes to their
                                     <a href="/bag/{{change.bags[0].id}}" class="like">{{change.bags[0].name}}!</a>
                                     <input type="hidden" name="bag_id" value="{{change.bags[0].id}}">
-                                    <input type="submit" value="Like">
+                                    <input type="submit" value="Like" id = "like_status">
                             </form>
                             </p>
                         </div>
