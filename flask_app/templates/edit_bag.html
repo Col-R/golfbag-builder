@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
   <div class="container">
     <div class="row">
       <nav class="navbar topnav">
@@ -31,63 +30,94 @@
           <a href="/logout">Log Out</a>
         </div>
       </nav>
-      <div class="topnav">
+    </div>
 
+    <div class="row page_title">
+      <div class="col-6">
+        <h1>Edit Bag</h1>
+      </div>
+
+    </div>
+    <div class="row show_main">
+      <div class="col-8">
+
+        <div class="row">
+          <div class="col-8">
+            <h4 id="bag_title">Edit your {{edit.name}}</h4>
+          </div>
+        </div>
+        <form action="/bag/update" method="post">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class="alert alert-danger" role="alert">
+            <strong>Fields cannot be blank</strong>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endwith %}
+
+          <div class="row">
+            <input type="hidden" name="id" value={{edit.id}}>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" class="form-control" value="{{edit.name}}">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="driver">Driver</label>
+                <input type="text" name="driver" class="form-control" value="{{edit.driver}}">
+              </div>
+              <div class="form-group">
+                <label for="woods">Woods</label>
+                <input type="text" name="woods" class="form-control" value="{{edit.woods}}">
+              </div>
+              <div class="form-group">
+                <label for="hybrids">Hybrids</label>
+                <input type="text" name="hybrids" class="form-control" value="{{edit.hybrids}}">
+              </div>
+              <input type="submit" value="Save changes" class="buttons_submit" id="add_bag_submit">
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="irons">Irons</label>
+                <input type="text" name="irons" class="form-control" value="{{edit.irons}}">
+              </div>
+              <div class="form-group">
+                <label for="wedges">Wedges</label>
+                <input type="text" name="wedges" class="form-control" value="{{edit.wedges}}">
+              </div>
+              <div class="form-group">
+                <label for="putter">Putter</label>
+                <input type="text" name="putter" class="form-control" value="{{edit.putter}}">
+              </div>
+            </div>
+
+
+          </div>
+        </form>
+
+      </div>
+      <div class="col-4">
+        <img src="/static/img/edit.jpg" alt="golf swing" id="show_img">
       </div>
     </div>
 
 
-    <h1>Test</h1>
-    <form action="/bag/update" method="post" class="">
-      <h2 class="">Edit a Bag</h2>
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <div class="alert alert-danger" role="alert">
-        <strong>Fields cannot be blank</strong>
-        {% for message in messages %}
-        <p>{{message}}</p>
-        {% endfor %}
-      </div>
-      {% endif %}
-      {% endwith %}
-
-      <div class="row">
-        <input type="hidden" name="id" value={{edit.id}}>
-        <div class="col-4">
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" name="name" class="form-control" value="{{edit.name}}">
-          </div>
-          <div class="form-group">
-            <label for="driver">Driver</label>
-            <input type="text" name="driver" class="form-control" value="{{edit.driver}}">
-          </div>
-          <div class="form-group">
-            <label for="woods">Woods</label>
-            <input type="text" name="woods" class="form-control" value="{{edit.woods}}">
-          </div>
-          <div class="form-group">
-            <label for="hybrids">Hybrids</label>
-            <input type="text" name="hybrids" class="form-control" value="{{edit.hybrids}}">
-          </div>
-          <div class="form-group">
-            <label for="irons">Irons</label>
-            <input type="text" name="irons" class="form-control" value="{{edit.irons}}">
-          </div>
-          <div class="form-group">
-            <label for="wedges">Wedges</label>
-            <input type="text" name="wedges" class="form-control" value="{{edit.wedges}}">
-          </div>
-          <div class="form-group">
-            <label for="putter">Putter</label>
-            <input type="text" name="putter" class="form-control" value="{{edit.putter}}">
-          </div>
-          <input type="submit" value="Save changes" class="btn btn-primary">
-        </div>
-
-      </div>
   </div>
-  </form>
+
+
+  </div>
+  </div>
+  </div>
 </body>
 </div>
 
