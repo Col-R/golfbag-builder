@@ -121,9 +121,8 @@ a:hover {
 .feed_item a:hover{
     color: #9EC567;
 }
-.like {
-    display: inline;
-    flex-direction: row;
+#like_status {
+    
 }
 
 /* My bags, right side dashboard*/
