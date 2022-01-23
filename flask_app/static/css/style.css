@@ -39,6 +39,30 @@ a:hover {
     color: #398564;
   }
 
+.buttons_submit {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#004242;
+	border-radius: 8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:0.75em;
+	font-weight:bold;
+	padding:7px 10px;
+    width: 50%;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.buttons_submit:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#6e9597;
+    color: #FFFFFF;
+}
+.buttons_submit:active {
+	position:relative;
+	top:1px;
+}
 
 #brand {
     font-weight: bold;
@@ -98,6 +122,7 @@ a:hover {
     color: #9EC567;
 }
 .like {
+    display: inline;
     flex-direction: row;
 }
 
@@ -141,7 +166,6 @@ ul{
     color: #004242;
     border-radius: 15px;
     font-size: 1.5em;
-    margin: 10px 0px;
 
 }
 
@@ -180,4 +204,21 @@ ul{
     margin: 0;
 }
 
-/*Show page
+.login_button{
+    width: 20%;
+}
+/*Show page*/
+
+.page_title {
+    background-color: #6E9597;
+    margin: 0.3em 0.5em 0 0.5em;
+    width: 50%;
+    text-align: center;
+}
+
+#bag_title {
+    text-decoration: underline !important;
+    padding: 1em;
+    font-size: 1.2em;
+}
+
