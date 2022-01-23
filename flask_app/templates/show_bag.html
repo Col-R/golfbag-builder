@@ -34,60 +34,93 @@
 
       </div>
     </div>
-    <div class = "row">
+    <div class="row">
       <h1>{{ bag.name }}</h1>
     </div>
     <div class="row show_main">
-      <div class="col-4 ">
+      <div class="col-4">
         <div class="show_content">
 
-
-        </div>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseLeft" aria-expanded="false" aria-controls="collapseExample">
-          Button with data-target
-        </button>
-        <ul class = "show_content collapse" id="collapseLeft">
-          <li>{{bag.driver}}</li>
-          <li>{{bag.woods}}</li>
-          <li>{{bag.hybrids}}</li>
+        
+        <a class="expandLink" data-toggle="collapse" href="#collapseDriver" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          + Driver
+        </a>
+        <ul>
+          <li class="show_content collapse" id="collapseDriver">{{bag.driver}}</li>
+        </ul>
+        <a class="expandLink" data-toggle="collapse" href="#collapseWoods" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          + Woods
+        </a>
+        <ul>
+          <li class="show_content collapse" id="collapseWoods">{{bag.woods}}</li>
+        </ul>
+        <a class="expandLink" data-toggle="collapse" href="#collapseHybrids" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          + Hybrids
+        </a>
+        <ul>
+          <li class="show_content collapse" id="collapseHybrids">{{bag.hybrids}}</li>
         </ul>
         <ul>
           <li>
             {% if bag.user_id == session.user_id%}
             <a href="/edit/{{bag.id}}">Edit bag</a>
-          {% endif %}
+            {% endif %}
           </li>
         </ul>
+        </div>
 
       </div>
       <div class="col-4 show_content">
+        <a class="expandLink" data-toggle="collapse" href="#collapseIrons" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        + Irons
+      </a>
         <ul>
-          <li>{{bag.irons}}</li>
-          <li>{{bag.wedges}}</li>
-          <li>{{bag.putter}}</li>
+          <li class="show_content collapse" id="collapseIrons">{{bag.irons}}</li>
+        </ul>
+        <a class="expandLink" data-toggle="collapse" href="#collapseWedges" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        + Wedges
+      </a>
+        <ul>
+          <li class="show_content collapse" id="collapseWedges">{{bag.wedges}}</li>
+        </ul>
+        <a class="expandLink" data-toggle="collapse" href="#collapsePutter" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        + Putter
+      </a>
+        <ul>
+          <li class="show_content collapse" id="collapsePutter">{{bag.putter}}</li>
         </ul>
         <ul>
           <li>
             {% if bag.user_id == session.user_id%}
             <a href="/bag/delete/{{bag.id}}">Delete Bag</a>
-          {% endif %}
+            {% endif %}
           </li>
         </ul>
 
       </div>
       <div class="col-4">
-        <img src="/static/img/view_sidebar.jpg" alt="golf bags" id = "show_img">
+        <img src="/static/img/view_sidebar.jpg" alt="golf bags" id="show_img">
       </div>
     </div>
-    
 
-    <!-- Todo create a collapsible button for each item in the bag. Label  = Driver, woods, etc. revealed content will be {{bag.driver}} {{bag.wedges}} etc -->
 
   </div>
-<!-- scripts -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
 </body>
 
 
