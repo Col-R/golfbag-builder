@@ -3,6 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Project Demo](#project-demo)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
@@ -27,6 +28,9 @@ Golf Bag Builder is a simple to use, modern, and user friendly tool for golfers.
 <img src="./Capture2.PNG">
 </kbd>
 </div>
+
+## Project Demo
+[Click to view site] http://3.12.84.195/
 
 ## Technologies
 ### Backend Development
