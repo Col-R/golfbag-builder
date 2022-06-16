@@ -17,14 +17,14 @@ Golf Bag Builder is a simple to use, modern, and user friendly tool for golfers.
 <br/>
 <div align="center">
 <kbd>
-<img src="./Capture1.png">
+<img src="./Capture1.PNG">
 </kbd>
 </div>
 
 <br/>
 <div align="center">
 <kbd>
-<img src="./Capture2.JPG">
+<img src="./Capture2.PNG">
 </kbd>
 </div>
 
