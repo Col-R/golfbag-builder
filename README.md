@@ -30,7 +30,7 @@ Golf Bag Builder is a simple to use, modern, and user friendly tool for golfers.
 </div>
 
 ## Project Demo
-[Click to view site] http://3.12.84.195/
+[Click to view site](http://3.12.84.195/)
 
 ## Technologies
 ### Backend Development
@@ -145,4 +145,4 @@ Created by Cole Robinson (https://www.linkedin.com/in/cwrobinson-/)
 Let me know what you think! All feedback welcome.
 
 ## License
-[Click to view]https://github.com/Col-R/golfbag_builder/blob/master/LICENSE.md
+[Click to view](https://github.com/Col-R/golfbag_builder/blob/master/LICENSE.md)
