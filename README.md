@@ -141,4 +141,4 @@ Created by Cole Robinson (https://www.linkedin.com/in/cwrobinson-/)
 Let me know what you think! All feedback welcome.
 
 ## License
-https://github.com/Col-R/golfbag_builder/blob/master/LICENSE.md
+[Click to view]https://github.com/Col-R/golfbag_builder/blob/master/LICENSE.md
