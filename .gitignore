@@ -306,7 +306,7 @@ Temporary Items
 *.msg
 *.pages
 *.rtf
-*.txt
+feature_list.txt
 *.wpd
 *.wps
 
