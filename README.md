@@ -38,7 +38,6 @@ Golf Bag Builder is a simple to use, modern, and user friendly tool for golfers.
 * Flask - version 2.0.2
 * Bcrypt - version 3.2.0
 * PyMySql - version 1.0.2
-* cffi - version 1.15.0
 
 ### Frontend Development
 * HTML5
