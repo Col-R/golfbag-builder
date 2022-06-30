@@ -1,1 +1,1 @@
-web: gunicorn server:app
+web: gunicorn server.py runserver 0.0.0.0:5000
