@@ -53,7 +53,7 @@ To try out this project:
   $ pipenv shell
 4. Install dependencies from the requirements.txt file:
   $ pip install -r requirements.txt
-6. To start the server, type python server.py
+6. To start the server, type python app.py
 7. In your browser, navigate to http://localhost:5000
 
 ## Code Examples
